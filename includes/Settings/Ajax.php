@@ -92,6 +92,7 @@ class Ajax {
             $this->send_error( erp_get_message ( ['type' => 'error_permission'] ) );
         }
 
+
         $result = $settings->save( $section );
 
         if ( is_wp_error( $result ) ) {

@@ -18,6 +18,11 @@ import CrmContacts from '../components/crm/contacts/CrmContacts.vue';
 import CrmContactForm from '../components/crm/contact-forms/CrmContactForm.vue';
 import CrmSubscription from '../components/crm/subscription/CrmSubscription.vue';
 
+// Payment Components
+import ErpGeneral from '../components/payment/ErpGeneral.vue';
+import ErpPaypal from '../components/payment/ErpPaypal.vue';
+import ErpStripe from '../components/payment/ErpStripe.vue';
+
 // WooCommerce Components
 import WooCommerce from '../components/woocommerce/WooCommerce.vue';
 
@@ -109,6 +114,33 @@ export default new Router({
                     path     : 'opening_balance',
                     name     : 'AcFinancialYears',
                     component: AcFinancialYears
+                }
+            ]
+        },
+        {
+            path     : '/erp-payment-gateway',
+            name     : 'Ac',
+            component: {
+                render(c) {
+                    return c('router-view');
+                }
+            },
+            children: [
+                {
+                    path     : 'general',
+                    name     : 'ErpGeneral',
+                    component: ErpGeneral,
+                    alias    : '/erp-payment-gateway'
+                },
+                {
+                    path     : 'paypal',
+                    name     : 'ErpPaypal',
+                    component: ErpPaypal
+                },
+                {
+                    path     : 'stripe',
+                    name     : 'ErpStripe',
+                    component: ErpStripe
                 }
             ]
         },

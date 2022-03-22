@@ -6,7 +6,7 @@ use WeDevs\ERP\Settings\Helpers;
 
 /**
  * Erp Settings page main class
- * 
+ *
  * @deprecated 1.9.0
  */
 class ERP_Settings_Page {
@@ -125,11 +125,16 @@ class ERP_Settings_Page {
 
             // Loop options and get values to save
             foreach ( $options as $value ) {
+
+
+
                 if ( ! isset( $value['id'] ) ) {
                     continue;
                 }
 
                 $option_value = $this->parse_option_value( $value );
+
+
 
                 if ( ! is_null( $option_value ) ) {
                     // Check if option is an array
@@ -158,7 +163,6 @@ class ERP_Settings_Page {
                         $update_options[ $value['id'] ] = $option_value;
                     }
                 }
-
                 // Custom handling
                 do_action( 'erp_update_option', $value );
             }
